@@ -222,6 +222,11 @@ public class CapacityService {
         return updateGroupUsage(counterMode, group, PropertyUtil.getDefaultGroupQuota(), ignoreQuotaLimit);
     }
 
+    /**
+     * 获取容器组
+     * @param group
+     * @return
+     */
     public GroupCapacity getGroupCapacity(String group) {
         return groupCapacityPersistService.getGroupCapacity(group);
     }
@@ -275,6 +280,7 @@ public class CapacityService {
             }
         }
     }
+
 
     private int getDefaultQuota(boolean isTenant) {
         if (isTenant) {
@@ -467,6 +473,11 @@ public class CapacityService {
         return false;
     }
 
+    /**
+     * 获取租户容器
+     * @param tenant
+     * @return
+     */
     public TenantCapacity getTenantCapacity(String tenant) {
         return tenantCapacityPersistService.getTenantCapacity(tenant);
     }

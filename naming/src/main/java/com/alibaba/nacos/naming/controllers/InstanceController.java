@@ -80,6 +80,8 @@ public class InstanceController {
 	@Autowired
 	private ServiceManager serviceManager;
 
+	private int index=0;
+
 	private DataSource pushDataSource = new DataSource() {
 
 		@Override
@@ -289,7 +291,7 @@ public class InstanceController {
 	@PutMapping("/beat")
 	@Secured(parser = NamingResourceParser.class, action = ActionTypes.WRITE)
 	public ObjectNode beat(HttpServletRequest request) throws Exception {
-
+        System.out.println("/v1/ns/instance/beat调用次数："+index++);
         ObjectNode result = JacksonUtils.createEmptyJsonNode();
 
 		result.put("clientBeatInterval", switchDomain.getClientBeatInterval());
